@@ -30,8 +30,6 @@ class PartialDE():
                 v_1[-1] = self.boundary_cond_2(j * t_step)
             for i in range(x_start, x_steps-1):
                 v_1[i] = u_1[i] - ((t_step / (2 * x_step)) * (u_1[i+1] - u_1[i-1]))
-                #print(y[i])
-            #x = y
             for i in range(0, x_steps):
                 u_1[i] = v_1[i]
 
@@ -82,11 +80,10 @@ if __name__ == '__main__':
     u_1, u_2 = equation_1.eulers_method(time, displacement, 0.01, 0.1, 1, 1)
     #= equation_2.eulers_method(time, displacement, 0.01, 0.1, 1, 1)
 
-    plt.subplot(1, 3, 1)
-    plt.plot(x_axis, u_1)
-    plt.title("u_1")
-    plt.subplot(1, 3, 2)
-    plt.plot(x_axis, u_2)
-    plt.title("u_2")
+    fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(10, 7))
+    line1, = ax1.plot(x_axis, u_1, color='green')
+    ax1.set_title("u_1")
+    line2, = ax2.plot(x_axis, u_2, color='red')
+    ax2.set_title("u_2")
     plt.show()
 
