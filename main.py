@@ -9,11 +9,9 @@ class PartialDE():
         self.boundary_cond_1 = boundary_cond_1
         self.boundary_cond_2 = boundary_cond_2
 
-    def eulers_method(self, t, x, t_step, x_step, t_start, x_start):
+    def euler_method(self, t, x, t_step, x_step, t_start, x_start):
         t_steps = int((t/t_step)+1)
         x_steps = int((x/x_step)+1)
-        v = np.zeros(shape=(t_steps, x_steps))
-        print(v.shape)
 
         u = np.zeros(x_steps)
         if isinstance(self.initial_cond, (float, int)):
@@ -35,7 +33,7 @@ class PartialDE():
 
         return u
 
-    def modified_eulers_method(self, t, x, t_step, x_step, t_start, x_start):  # wip
+    def modified_euler_method(self, t, x, t_step, x_step, t_start, x_start):  # wip
         t_steps = int((t/t_step)+1)
         x_steps = int((x/x_step)+1)
 
@@ -65,7 +63,7 @@ if __name__ == '__main__':
     time = 5
     displacement = 20
     equation_1 = PartialDE(0, math.sin, 0)
-    equation_2 = PartialDE(mod_euler_bound_cond, 0, 0)
+    #equation_2 = PartialDE(mod_euler_bound_cond, 0, 0)
     x_axis = np.arange(201)
     u = equation_1.eulers_method(time, displacement, 0.01, 0.1, 1, 1)
     #= equation_2.eulers_method(time, displacement, 0.01, 0.1, 1, 1)
