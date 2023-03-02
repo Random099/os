@@ -45,7 +45,7 @@ class PartialDE():
         np.savetxt('u_2.txt', u_2)
         return u_1, u_2
 
-    def modified_eulers_method(self, t, x, t_step, x_step, t_start, x_start):
+    def modified_eulers_method(self, t, x, t_step, x_step, t_start, x_start):  # wip
         t_steps = int((t/t_step)+1)
         x_steps = int((x/x_step)+1)
 
