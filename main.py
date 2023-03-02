@@ -4,7 +4,7 @@ import math
 import filecmp
 
 
-class ODE():
+class ODE:
     def __init__(self, initial_cond, boundary_cond_1, boundary_cond_2):
         self.initial_cond = initial_cond
         self.boundary_cond_1 = boundary_cond_1
