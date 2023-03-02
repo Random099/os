@@ -3,7 +3,8 @@ import matplotlib.pyplot as plt
 import math
 import filecmp
 
-class PartialDE():
+
+class ODE():
     def __init__(self, initial_cond, boundary_cond_1, boundary_cond_2):
         self.initial_cond = initial_cond
         self.boundary_cond_1 = boundary_cond_1
@@ -40,9 +41,9 @@ def euler_2_bound_cond(x):
 if __name__ == '__main__':
     time = 5  # int
     displacement = 20  # int
-    equation_1 = PartialDE(0, math.sin, 0)
-    equation_2 = PartialDE(euler_2_bound_cond, 0, 0 )
-    #equation_2 = PartialDE(mod_euler_bound_cond, 0, 0)
+    equation_1 = ODE(0, math.sin, 0)
+    equation_2 = ODE(euler_2_bound_cond, 0, 0 )
+    #equation_2 = ODE(mod_euler_bound_cond, 0, 0)
     x_axis = np.arange(201)
     u_1 = equation_1.euler_method(time, displacement, 0.01, 0.1, 1, 1)
     u_2 = equation_2.euler_method(time, displacement, 0.01, 0.1, 1, 1)
