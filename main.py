@@ -65,7 +65,7 @@ if __name__ == '__main__':
     equation_1 = PartialDE(0, math.sin, 0)
     #equation_2 = PartialDE(mod_euler_bound_cond, 0, 0)
     x_axis = np.arange(201)
-    u = equation_1.eulers_method(time, displacement, 0.01, 0.1, 1, 1)
+    u = equation_1.euler_method(time, displacement, 0.01, 0.1, 1, 1)
     #= equation_2.eulers_method(time, displacement, 0.01, 0.1, 1, 1)
 
     fig, ax = plt.subplots(figsize=(10, 7))
