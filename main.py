@@ -46,6 +46,7 @@ if __name__ == '__main__':
     #equation_2 = ODE(mod_euler_bound_cond, 0, 0)
     x_axis = np.arange(201)
     u_1 = equation_1.euler_method(time, displacement, 0.01, 0.1, 1, 1)
+    np.savetxt('u_1.txt', u_1)
     u_2 = equation_2.euler_method(time, displacement, 0.01, 0.1, 1, 1)
 
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 7))
