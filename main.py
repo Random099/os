@@ -68,7 +68,7 @@ def plot(data: dict, x_axis=None) -> None:
 
 
 if __name__ == '__main__':
-    TIME, DISPLACEMENT = 5, 20  # int, int
+    TIME, DISPLACEMENT = 6, 20  # int, int
     T_STEP, X_STEP = 0.01, 0.1  # float, float
     T_START, X_START = 1, 1  # int, int
     X_AXIS = np.arange(0, ((DISPLACEMENT/X_STEP)+1)/10, 0.1)
@@ -78,6 +78,5 @@ if __name__ == '__main__':
     'euler_u_2': equation_2.euler_method(TIME, DISPLACEMENT, T_STEP, X_STEP),
     'mod_euler_u_1': equation_1.mod_euler_method(TIME, DISPLACEMENT, T_STEP, X_STEP),
     'mod_euler_u_2': equation_2.mod_euler_method(TIME, DISPLACEMENT, T_STEP, X_STEP)}
-
     plot(TO_PLOT, X_AXIS)
 
