@@ -18,7 +18,7 @@ class DE:
         if isinstance(self.initial_cond, (float, int)):
             v = np.full(x_steps, float(self.initial_cond))
         else:
-            v = [self.initial_cond(i * x_step) for i in range(x_steps)]
+            v = [float(self.initial_cond(i * x_step)) for i in range(x_steps)]
         for j in range(t_start, t_steps):
             if isinstance(self.boundary_cond_1, (float, int)):
                 v[0] = float(self.boundary_cond_1)
@@ -34,7 +34,8 @@ class DE:
         return u
 
 
-def euler_2_bound_cond(x):
+
+def euler_2_bound_cond(x: float) -> float:
     return math.exp(-(pow((x - 10), 2)))
 
 
@@ -43,7 +44,7 @@ if __name__ == '__main__':
     displacement = 20  # int
     equation_1 = DE(0, math.sin, 0)
     equation_2 = DE(euler_2_bound_cond, 0, 0 )
-    #equation_2 = ODE(mod_euler_bound_cond, 0, 0)
+    #equation_2 = DE(mod_euler_bound_cond, 0, 0)
     x_axis = np.arange(201)
     u_1 = equation_1.euler_method(time, displacement, 0.01, 0.1, 1, 1)
     np.savetxt('u_1.txt', u_1)
