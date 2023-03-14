@@ -63,13 +63,12 @@ def plot(data: dict, x_axis=None) -> None:
         lines[n], = axs[n].plot(x_axis, value[1])
         axs[n].locator_params(nbins=5)
         axs[n].set_title(value[0])
-    del x_axis
     plt.show()
 
 
 if __name__ == '__main__':
     TIME, DISPLACEMENT = 6, 20  # int, int
-    T_STEP, X_STEP = 0.01, 0.1  # float, float
+    T_STEP, X_STEP = 0.01, 0.1  # k, h
     T_START, X_START = 1, 1  # int, int
     X_AXIS = np.arange(0, ((DISPLACEMENT/X_STEP)+1)/10, 0.1)
     equation_1 = DE(0, math.sin, 0)
